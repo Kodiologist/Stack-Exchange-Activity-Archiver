@@ -16,6 +16,8 @@ setuptools.setup(
     project_urls = {
         "Source Code": 'https://github.com/Kodiologist/Stack-Exchange-Activity-Archiver'},
     python_requires = '>=3.8',
+    install_requires = [
+        'stackapi'],
     dependency_links = [
         'http://github.com/hylang/hy/tarball/e35b84bce7befdf5caf347110111481e19956877#egg=hy-ge35b84bc'],
     packages = setuptools.find_packages(),
