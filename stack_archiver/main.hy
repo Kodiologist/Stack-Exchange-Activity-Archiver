@@ -3,6 +3,7 @@
   re
   sys
   os
+  errno
   json
   [stackapi [StackAPI]]
   stack-archiver)
