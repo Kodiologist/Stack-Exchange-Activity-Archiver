@@ -17,9 +17,9 @@ setuptools.setup(
         "Source Code": 'https://github.com/Kodiologist/Stack-Exchange-Activity-Archiver'},
     python_requires = '>=3.8',
     install_requires = [
-        'stackapi'],
-    dependency_links = [
-        'http://github.com/hylang/hy/tarball/e35b84bce7befdf5caf347110111481e19956877#egg=hy-ge35b84bc'],
+        'stackapi',
+        'hy == 0.26.*',
+        'hyrule == 0.3.*'],
     packages = setuptools.find_packages(),
     package_data = {
         'stack_archiver': ['*.hy', '__pycache__/*'],

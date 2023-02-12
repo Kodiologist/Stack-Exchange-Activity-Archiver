@@ -1,11 +1,15 @@
+(require
+  hyrule [unless])
+
 (import
-  [datetime [datetime]]
+  datetime [datetime]
   re
   sys
   os
   errno
   json
-  [stackapi [StackAPI]]
+  hyrule [inc parse-args]
+  stackapi [StackAPI]
   stack-archiver)
 
 (setv myfilter "J9AyJbBs)0ihSyjDgkoFO")
@@ -50,7 +54,7 @@
     (setv data (sorted data :key :creation_date))
     (with [o (open args.FILE "w")]
       (json.dump data o :sort-keys True
-        :indent 2 :separators (, "," ": ")
+        :indent 2 :separators #("," ": ")
         :ensure-ascii False))
     (print "Saved."))
 
@@ -74,7 +78,7 @@
       (setv d (dfor
         k ["creation_date" "last_activity_date" "title" "edited" "score"]
         :if (in k x)
-        [k (get x k)]))
+        k (get x k)))
       (setv (get d "T") tt)
       (setv (get d "U") (if (= tt "comment")
         (re.sub r"/questions/(\d+)/[^#]+#" r"/q/\1#" (:link x))
